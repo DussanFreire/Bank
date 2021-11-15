@@ -63,5 +63,11 @@ class BankTest {
 		bank.addCustomer(1, "V", "M", "S", 7);
 		assertEquals("V", bank.getCustomerList().get(0).getName());
 	}
+	
+	@Test
+	void testGetId() {
+		Bank bank = new RegularBank("test", 100);
+		assertEquals(100, bank.getId());
+	}
 
 }
