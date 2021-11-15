@@ -108,5 +108,14 @@ class BankTest {
 		bank.addAccount(AccountType.INVEST, 1, 10);
 		assertEquals(10, bank.getAccount(1).getCustomerNumber());
 	}
+	
+	@Test
+	void testUpdateAccount() throws Exception {
+		Bank bank = new RegularBank("test", 100);
+		bank.addCustomer(new Customer(10, "V", "M", "S", 7));
+		bank.addAccount(AccountType.INVEST, 1, 10);
+		bank.updateAccount(new CurrentAccount(1,10));
+		assertEquals(AccountType.CURRENT, bank.getAccount(1).getType());
+	}
 
 }
