@@ -15,4 +15,11 @@ class CommissionAccountTest {
 		account.enterMoney(100);
 		assertEquals(109.9, account.getMonthlyReport(), 0.01);
 	}
+	
+	@Test
+	void testWithdrawEnough() {
+		Account account = new CurrentAccount(1,1);
+		account.enterMoney(100);
+		assertEquals("You withdrew: 50.0", ((CommissionAccount) account).withdrawEnough(50));
+	}
 }
