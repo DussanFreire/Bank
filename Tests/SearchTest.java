@@ -38,5 +38,15 @@ class SearchTest {
 		central.createBank("java", 300);
 		assertEquals(100, searcher.find(central.getBankList(), "unit").getId());
 	}
+	
+	@Test
+	void testFindGeneral() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		central.createBank("test", 200);
+		central.createBank("unit", 100);
+		central.createBank("java", 300);
+		assertEquals(2, searcher.findGeneral(central.getBankList(), "java", 300, SearchBy.ID));
+	}
 
 }
