@@ -67,5 +67,11 @@ class SearchTest {
 		Search searcher = new Linear();
 		assertEquals(false, searcher.getTypeSearch(SearchBy.NAME));
 	}
+	
+	@Test
+	void testGetTypeComparator() throws Exception {
+		Search searcher = new Linear();
+		assertEquals(true, searcher.getTypeComparator(Comparator.EQUAL_TO));
+	}
 
 }
