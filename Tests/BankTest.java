@@ -117,5 +117,11 @@ class BankTest {
 		bank.updateAccount(new CurrentAccount(1,10));
 		assertEquals(AccountType.CURRENT, bank.getAccount(1).getType());
 	}
+	
+	@Test
+	void testGetName() {
+		Bank bank = new RegularBank("test", 100);
+		assertEquals("test", bank.getName());
+	}
 
 }
