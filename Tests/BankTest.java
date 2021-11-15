@@ -85,5 +85,12 @@ class BankTest {
 		bank.changeClientAccount(1, 20);
 		assertEquals("Sergio", bank.getAccount(1).getName());
 	}
+	
+	@Test
+	void testAddCustomerCustomer() throws Exception {
+		Bank bank = new RegularBank("test", 100);
+		bank.addCustomer(new Customer(1, "V", "M", "S", 7));
+		assertEquals("V", bank.getCustomerList().get(0).getName());
+	}
 
 }
