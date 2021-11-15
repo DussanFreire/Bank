@@ -83,4 +83,14 @@ class SearchTest {
 		central.createBank("java", 300);
 		assertEquals(true, searcher.isEqual(central.getBankList(), SearchBy.NAME, 1, "unit", 100));
 	}
+	
+	@Test
+	void testIsGreaterThan() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		central.createBank("test", 200);
+		central.createBank("unit", 100);
+		central.createBank("java", 300);
+		assertEquals(false, searcher.isGreaterThan(central.getBankList(), SearchBy.ID, 1, "unit", 100));
+	}
 }
