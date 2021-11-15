@@ -100,5 +100,13 @@ class BankTest {
 		bank.addAccount(AccountType.INVEST, 1, 10);
 		assertEquals(1, bank.getAccountList().size());
 	}
+	
+	@Test
+	void testGetAccount() throws Exception {
+		Bank bank = new RegularBank("test", 100);
+		bank.addCustomer(new Customer(10, "V", "M", "S", 7));
+		bank.addAccount(AccountType.INVEST, 1, 10);
+		assertEquals(10, bank.getAccount(1).getCustomerNumber());
+	}
 
 }
