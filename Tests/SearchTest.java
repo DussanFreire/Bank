@@ -103,4 +103,14 @@ class SearchTest {
 		central.createBank("java", 300);
 		assertNotNull(searcher.getTime(central.getBankList()));
 	}
+	
+	@Test
+	void testGetMemory() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		central.createBank("test", 200);
+		central.createBank("unit", 100);
+		central.createBank("java", 300);
+		assertNotNull(searcher.getMemory(central.getBankList()));
+	}
 }
