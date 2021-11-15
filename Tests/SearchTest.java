@@ -61,5 +61,11 @@ class SearchTest {
 		    fail("There is no bank to look for");
 		}
 	}
+	
+	@Test
+	void testGetTypeSearch() throws Exception {
+		Search searcher = new Linear();
+		assertEquals(false, searcher.getTypeSearch(SearchBy.NAME));
+	}
 
 }
