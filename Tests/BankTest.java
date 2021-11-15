@@ -123,5 +123,11 @@ class BankTest {
 		Bank bank = new RegularBank("test", 100);
 		assertEquals("test", bank.getName());
 	}
+	
+	@Test
+	void testGetType() {
+		Bank bank = new RegularBank("test", 100);
+		assertEquals(BankType.REGULAR, bank.getType());
+	}
 
 }
