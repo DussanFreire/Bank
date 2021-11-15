@@ -5,6 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class BankTest {
+	
+	@Test
+	void testBank() {
+		assertNotNull(new RegularBank("bank",1));
+	}
+	
 	@Test
 	void testAddAccount() throws Exception {
 		Bank bank = new RegularBank("test", 100);
