@@ -74,4 +74,13 @@ class SearchTest {
 		assertEquals(true, searcher.getTypeComparator(Comparator.EQUAL_TO));
 	}
 
+	@Test
+	void testIsEqual() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		central.createBank("test", 200);
+		central.createBank("unit", 100);
+		central.createBank("java", 300);
+		assertEquals(true, searcher.isEqual(central.getBankList(), SearchBy.NAME, 1, "unit", 100));
+	}
 }
