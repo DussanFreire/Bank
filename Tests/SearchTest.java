@@ -93,4 +93,14 @@ class SearchTest {
 		central.createBank("java", 300);
 		assertEquals(false, searcher.isGreaterThan(central.getBankList(), SearchBy.ID, 1, "unit", 100));
 	}
+	
+	@Test
+	void testGetTime() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		central.createBank("test", 200);
+		central.createBank("unit", 100);
+		central.createBank("java", 300);
+		assertNotNull(searcher.getTime(central.getBankList()));
+	}
 }
