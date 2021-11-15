@@ -48,5 +48,18 @@ class SearchTest {
 		central.createBank("java", 300);
 		assertEquals(2, searcher.findGeneral(central.getBankList(), "java", 300, SearchBy.ID));
 	}
+	
+	@Test
+	void testFindGeneralIfDoesntExist() throws Exception {
+		Search searcher = new Linear();
+		CentralBank central = new CentralBank();
+		try {
+			central.createBank("test", 200);
+			central.createBank("unit", 100);
+			assertEquals(2, searcher.findGeneral(central.getBankList(), "java", 300, SearchBy.ID));
+		} catch (Exception e) {
+		    fail("There is no bank to look for");
+		}
+	}
 
 }
