@@ -1,41 +1,48 @@
-# Proceso de creación y ejecución
-## Se comenzó el proceso de creación con la configuración de J Unit 
-* Se creó una carpeta test donde estarán todos los archivos de tests.
-* En la carpeta de los tests, damos clic derecho y seleccionamos New > Junit test case.
-* Le ponemos el nombre al test en el campo de texto “Name”.
-* Hicimos click en Finish y se verá el test creado en el folder escogido.
-## Para la parte de ejecución  se configura Jacoco para ver de manera adecuada el coverage
-* Ahora, para hacer correr los tests y ver el coverage del código hacemos click en el segundo botón de play y configuramos el coverage del proyecto.
-* Seleccionamos la opción “run all tests in the selected project, package or source folder” para que así nos muestre el coverage completo.
-* Se mostrará en la consola el número de tests ejecutados, pasados, fallidos y saltados.
-# Resultados
+# Unit Testing with JUnit and JaCoCo - Bank app
 
-Se obtuvo como resultado un total de 81.8% de coverage, donde el 18.2% restante casi en su totalidad pertenece a métodos de búsqueda alternativos que todavía no están siendo utilizados en la aplicación, además de múltiples archivos que contienen las variables constantes utilizadas en el programa. 
-Sin embargo se procuró obtener el máximo coverage en los módulos de mayor importancia del programas los cuales serían: Account, bank y bank Manager. De esta manera se optimizó el tiempo enfocando el tiempo del sprint en corroborar el correcto funcionamiento de los módulos más importantes. 
-Es en este sentido que se cree que se obtuvieron los resultados correctos. 
+## Creation and Execution Process
 
-# ESTRUCTURA DEL CODIGO
-## S.O.L.I.D.
+### Test Setup with JUnit
 
-### Single Responsibility Principle.-
+1.	A test folder was created to store all test files.
+2.	Inside the test folder, right-click and select New > JUnit Test Case.
+3.	Enter the name of the test in the “Name” field.
+4.	Click Finish, and the test will appear in the chosen folder.
 
-In general, this principle was applied in almost the entire project, specifically creating a new class: BankOperator, to reduce the load on the Bank class.
+### Running Tests and Configuring Coverage with JaCoCo
 
-### Open-Close Principle.-
+1.	To run the tests and see the code coverage, click on the second “Play” button and configure the project’s coverage.
+2.	Select the option “Run all tests in the selected project, package, or source folder” to view complete coverage.
+3.	The console will display the number of tests executed, passed, failed, and skipped.
 
-The IWithdrawMoney interface and the abstract classes No commission and commission were created to be able to keep open the extension of being able to add different types of accounts, but closed to the modification of the account types that already exist.
+## Results
 
-### Liskov Substitution Principle.-
+The project achieved a total coverage of 81.8%, with the remaining 18.2% primarily consisting of alternative search methods not yet used in the application, along with several files containing constant variables used throughout the program.
 
-In the same way, the No commission and commission classes were created in order not to alter the current types of accounts with future system updates such as creating new ones or updating them.
+However, efforts were made to maximize coverage in the most critical modules, which include Account, Bank, and BankManager. This allowed the team to optimize the sprint by focusing on verifying the correct functionality of these core modules. Based on this approach, the results are considered satisfactory.
 
-### Interface Segregation Principle.-
+## Code Structure: S.O.L.I.D. Principles
 
-The interface: IWithdrawMoney was created in order to have to create this method in classes that did not use it as was the case with HousingAccount, which previously had to be implemented since it inherited that method from the account class, but now only the accounts that They need it, implement it and those that don't, shouldn't.
+### Single Responsibility Principle
 
-## Dependency Inversion Principle.-
+This principle was applied throughout most of the project. Specifically, a new class BankOperator was created to reduce the responsibilities of the Bank class.
 
-The part of the bank that handled everything was divided into modules and created a high level of dependency, in addition to separating in the same way the types of accounts that previously all depended on a single class.
+### Open-Closed Principle
 
-# REFERENCIAS
-Informe del Codigo : https://docs.google.com/document/d/1buC5zROhoB11TnzNdj1LYlQdBLAEp-mD4scKg1dxlGE/edit?usp=sharing
+The interface IWithdrawMoney and the abstract classes NoCommission and Commission were introduced to enable extending different account types without modifying the existing ones.
+
+
+### Liskov Substitution Principle
+
+The NoCommission and Commission classes ensure that the current account types are not affected by future updates or the addition of new accounts.
+
+### Interface Segregation Principle
+
+The interface IWithdrawMoney was created to avoid forcing classes to implement methods they do not use. For instance, the HousingAccount class previously had to implement the method from the Account class, but now only accounts that require it implement it, while others do not.
+
+### Dependency Inversion Principle
+
+The responsibilities handled by the Bank class were divided into smaller modules, creating a higher-level dependency. Additionally, the account types were separated, whereas before they all depended on a single class.
+
+## References
+* Code Report: https://docs.google.com/document/d/1buC5zROhoB11TnzNdj1LYlQdBLAEp-mD4scKg1dxlGE/edit?usp=sharing
